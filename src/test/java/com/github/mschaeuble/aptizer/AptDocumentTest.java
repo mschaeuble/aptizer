@@ -83,4 +83,64 @@ public class AptDocumentTest {
     String referenceFile = readFileToString(toFile(getClass().getResource("/reference.apt")));
     assertThat(readFileToString(outputFile), equalTo(referenceFile));
   }
+  
+  @Test
+  public void shouldRenderAnEmptyDocument() {
+    // Given
+    AptDocument document = new AptDocument();
+    
+    // When
+    String renderedDocument = document.renderToString();
+    
+    // Then
+    assertThat(renderedDocument, equalTo(""));
+  }
+  
+  @Test
+  public void shouldRenderDocumentWithATitle() {
+    // Given
+    AptDocument document = new AptDocument("title");
+    
+    // When
+    String renderedDocument = document.renderToString();
+    
+    // Then
+    assertThat(renderedDocument, equalTo("  ---\n  title\n"));
+  }
+  
+  @Test
+  public void shouldRenderDocumentWithATitleAndAuthor() {
+    // Given
+    AptDocument document = new AptDocument("title", "author");
+    
+    // When
+    String renderedDocument = document.renderToString();
+    
+    // Then
+    assertThat(renderedDocument, equalTo("  ---\n  title\n  ---\n  author\n"));
+  }
+  
+  @Test
+  public void shouldRenderDocumentWithATitleAndDate() {
+    // Given
+    AptDocument document = new AptDocument("title", new Date("date"));
+    
+    // When
+    String renderedDocument = document.renderToString();
+    
+    // Then
+    assertThat(renderedDocument, equalTo("  ---\n  title\n  ---\n  ---\n  date\n"));
+  }
+  
+  @Test
+  public void shouldRenderDocumentWithATitleAuthorAndDate() {
+    // Given
+    AptDocument document = new AptDocument("title", "author", new Date("date"));
+    
+    // When
+    String renderedDocument = document.renderToString();
+    
+    // Then
+    assertThat(renderedDocument, equalTo("  ---\n  title\n  ---\n  author\n  ---\n  date\n"));
+  }
 }

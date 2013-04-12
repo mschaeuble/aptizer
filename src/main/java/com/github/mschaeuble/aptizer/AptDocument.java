@@ -15,6 +15,7 @@ public class AptDocument {
 
   private final String title;
   private final String author;
+  private final Date date;
   private final List<AptElement> content = new ArrayList<AptElement>();
   
   /**
@@ -23,6 +24,15 @@ public class AptDocument {
   public AptDocument() {
     title = null;
     author = null;
+    date = null;
+  }
+  
+  public AptDocument(String title) {
+    checkNotNull(title, "title must never be null");
+    
+    this.title = title;
+    this.author = null;
+    this.date = null;
   }
   
   public AptDocument(String title, String author) {
@@ -31,6 +41,26 @@ public class AptDocument {
     
     this.title = title;
     this.author = author;
+    this.date = null;
+  }
+  
+  public AptDocument(String title, Date date) {
+    checkNotNull(title, "title must never be null");
+    checkNotNull(date, "date must never be null");
+    
+    this.title = title;
+    this.author = null;
+    this.date = date;
+  }
+  
+  public AptDocument(String title, String author, Date date) {
+    checkNotNull(title, "title must never be null");
+    checkNotNull(author, "author must never be null");
+    checkNotNull(date, "date must never be null");
+    
+    this.title = title;
+    this.author = author;
+    this.date = date;
   }
   
   public AptDocument append(AptElement element) {
@@ -43,14 +73,15 @@ public class AptDocument {
   public void renderToFile(String fileName) throws IOException {
     checkNotNull(fileName, "fileName must never be null");
     
-    String renderedDocument = renderDocument();
+    String renderedDocument = renderToString();
     writeToFile(renderedDocument, fileName);
   }
 
-  private String renderDocument() {
+  public String renderToString() {
     StringBuilder sb = new StringBuilder();
     
     renderHeader(sb);
+    appendNewLineIfNeeded(sb);
     renderContent(sb);
     
     return sb.toString();
@@ -60,7 +91,19 @@ public class AptDocument {
     renderHeaderTextIfNeeded(title, sb);
     renderHeaderTextIfNeeded(author, sb);
     
-    if (title != null || author != null) {
+    if (date != null) {
+      if (author == null) {
+        sb.append(INDENTATION).append(THREE_DASHES).append(NEW_LINE);
+      }
+      renderHeaderTextIfNeeded(date.render(), sb);
+    }
+  }
+
+  private void appendNewLineIfNeeded(StringBuilder sb) {
+    boolean hasAHeader = (title != null || author != null | date != null);
+    boolean hasContent = content.size() >= 1;
+    
+    if (hasAHeader && hasContent) {
       sb.append(NEW_LINE);
     }
   }
