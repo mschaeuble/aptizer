@@ -13,7 +13,7 @@ public class Comment extends AptElement {
   }
   
   String render() {
-    String[] commentLines = comment.split("\n");
+    String[] commentLines = comment.split("\\r?\\n");
     
     StringBuilder sb = new StringBuilder();
     

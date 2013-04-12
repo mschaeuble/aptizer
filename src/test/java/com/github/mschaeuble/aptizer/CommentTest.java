@@ -22,9 +22,22 @@ public class CommentTest {
   }
   
   @Test
-  public void shouldRenderAMultilineComment() {
+  public void shouldRenderAUnixMultilineComment() {
     // Given
     String text = "first line\nsecond line";
+    Comment comment = new Comment(text);
+    
+    // When
+    String renderedComment = comment.render();
+    
+    // Then
+    assertThat(renderedComment, equalTo("~~first line\n~~second line"));
+  }
+  
+  @Test
+  public void shouldRenderAWindowsMultilineComment() {
+    // Given
+    String text = "first line\r\nsecond line";
     Comment comment = new Comment(text);
     
     // When
