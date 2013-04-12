@@ -8,12 +8,14 @@ import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
 
 import com.github.mschaeuble.aptizer.element.Anchor;
+import com.github.mschaeuble.aptizer.element.Cell;
 import com.github.mschaeuble.aptizer.element.HorizontalRule;
 import com.github.mschaeuble.aptizer.element.Link;
 import com.github.mschaeuble.aptizer.element.List;
 import com.github.mschaeuble.aptizer.element.List.Style;
 import com.github.mschaeuble.aptizer.element.Paragraph;
 import com.github.mschaeuble.aptizer.element.Section;
+import com.github.mschaeuble.aptizer.element.Table;
 import com.github.mschaeuble.aptizer.element.VerbatimText;
 
 import static org.apache.commons.io.FileUtils.readFileToString;
@@ -71,6 +73,16 @@ public class AptDocumentTest {
         append(new Link(topAnchor, "Goto top")).
         append(new Link(topAnchor)).
         append(new VerbatimText("Verbatim text in a box", VerbatimText.Style.FRAMED)).
+        append(new Table(Table.Style.GRID, "Table demo").
+                 addRow(new Cell("Centered", Cell.Alignment.CENTER),
+                        new Cell("Left-aligned", Cell.Alignment.LEFT),
+                        new Cell("Right-aligned", Cell.Alignment.RIGHT)).
+                 addRow(new Cell("c", Cell.Alignment.CENTER),
+                        new Cell("l", Cell.Alignment.LEFT),
+                        new Cell("r", Cell.Alignment.RIGHT))).
+        append(new Table(Table.Style.GRIDLESS).
+                 addRow(new Cell("This"), new Cell("is a")).
+                 addRow(new Cell("gridless"), new Cell("table"))).
         renderToFile(outputFile.getAbsolutePath());
     
     // Then

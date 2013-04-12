@@ -76,3 +76,16 @@ Verbatim text,
 +--+
 Verbatim text in a box
 +--+
+
+*--*--+--:--
+|Centered|Left-aligned|Right-aligned
+*--*--+--:--
+|c|l|r
+*--*--+--:--
+Table demo
+
+*--+--+--
+This|is a
+*--+--+--
+gridless|table
+*--+--+--
