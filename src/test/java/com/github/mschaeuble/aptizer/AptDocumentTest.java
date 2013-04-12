@@ -9,6 +9,7 @@ import org.junit.rules.TemporaryFolder;
 
 import com.github.mschaeuble.aptizer.element.Anchor;
 import com.github.mschaeuble.aptizer.element.Cell;
+import com.github.mschaeuble.aptizer.element.Comment;
 import com.github.mschaeuble.aptizer.element.HorizontalRule;
 import com.github.mschaeuble.aptizer.element.Link;
 import com.github.mschaeuble.aptizer.element.List;
@@ -83,6 +84,7 @@ public class AptDocumentTest {
         append(new Table(Table.Style.GRIDLESS).
                  addRow(new Cell("This"), new Cell("is a")).
                  addRow(new Cell("gridless"), new Cell("table"))).
+        append(new Comment("comment line 1\ncomment line 2")).
         renderToFile(outputFile.getAbsolutePath());
     
     // Then
