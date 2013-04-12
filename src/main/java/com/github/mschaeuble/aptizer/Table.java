@@ -4,10 +4,14 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import static com.github.mschaeuble.aptizer.util.Consts.EMPTY_STRING;
 import static com.github.mschaeuble.aptizer.util.Consts.NEW_LINE;
 
 public class Table extends AptElement {
 
+  private static final String TABLE_ROW_START = "*--";
+  private static final String CELL_SEPARATOR = "|";
+  
   public enum Style {
     /** Draws the table with a grid around table cells. */
     GRID,
@@ -18,9 +22,9 @@ public class Table extends AptElement {
     private String render() {
       switch (this) {
         case GRID:
-          return "|";
+          return CELL_SEPARATOR;
         case GRIDLESS:
-          return "";
+          return EMPTY_STRING;
         default:
           String msg = String.format("Style '%s' is not implemented", this);
           throw new UnsupportedOperationException(msg);
@@ -50,7 +54,7 @@ public class Table extends AptElement {
   String render() {
     boolean isEmptyTable = content.size() <= 0;
     if (isEmptyTable) {
-      return "";
+      return EMPTY_STRING;
     }
     
     return renderTable();
@@ -72,7 +76,7 @@ public class Table extends AptElement {
     List<Cell> cellsInLastRow = content.get(content.size()-1);
     renderColumnDefinitions(sb, cellsInLastRow);
   }
-
+ 
   private void renderRow(StringBuilder sb, int currentRow) {
     List<Cell> cellsInCurrentRow = content.get(currentRow);
     renderColumnDefinitions(sb, cellsInCurrentRow);
@@ -84,7 +88,7 @@ public class Table extends AptElement {
       if (i == 0) {
         sb.append(style.render());
       } else {
-        sb.append("|");
+        sb.append(CELL_SEPARATOR);
       }
       
       sb.append(cell.render());
@@ -102,7 +106,7 @@ public class Table extends AptElement {
   private void renderColumnDefinitions(StringBuilder sb, List<Cell> cells) {
     for (int i = 0; i < cells.size(); i++) {
       if (i == 0) {
-        sb.append("*--");
+        sb.append(TABLE_ROW_START);
       }
       
       sb.append(cells.get(i).getAlignment().render());

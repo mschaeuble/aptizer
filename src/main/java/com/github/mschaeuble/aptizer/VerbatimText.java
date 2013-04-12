@@ -12,12 +12,14 @@ public class VerbatimText extends AptElement {
     /** With box */
     FRAMED;
     
+    private static final String FRAMED_MARKUP = "+--+";
+    
     private String render() {
       switch (this) {
         case UNFRAMED:
           return THREE_DASHES;
         case FRAMED:
-          return "+--+";
+          return FRAMED_MARKUP;
         default:
           String msg = String.format("Style '%s' is not implemented", this);
           throw new UnsupportedOperationException(msg);

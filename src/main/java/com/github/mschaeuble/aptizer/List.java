@@ -9,6 +9,8 @@ import static com.github.mschaeuble.aptizer.util.Consts.SPACE;
 
 public class List extends AptElement {
 
+  private static final String END_OF_LIST_MARKUP = "[]";
+  
   public enum Style {
     /** bullet points. */
     BULLETS,
@@ -28,20 +30,26 @@ public class List extends AptElement {
     /** Upper-roman numbering: I, II, III, IV, etc. */
     UPPER_ROMAN;
     
+    private final String DECIMAL_LIST_MARKUP = "[[1]]";
+    private final String LOWER_ALPHA_MARKUP  = "[[a]]";
+    private final String UPPER_ALPHA_MARKUP  = "[[A]]";
+    private final String LOWER_ROMAN_MARKUP  = "[[i]]";
+    private final String UPPER_ROMAN_MARKUP  = "[[I]]";
+    
     private String render() {
       switch (this) {
         case BULLETS:
           return ASTERISK;
         case DECIMAL:
-          return "[[1]]";
+          return DECIMAL_LIST_MARKUP;
         case LOWER_ALPHA:
-          return "[[a]]";
+          return LOWER_ALPHA_MARKUP;
         case UPPER_ALPHA:
-          return "[[A]]";
+          return UPPER_ALPHA_MARKUP;
         case LOWER_ROMAN:
-          return "[[i]]";
+          return LOWER_ROMAN_MARKUP;
         case UPPER_ROMAN:
-          return "[[I]]";
+          return UPPER_ROMAN_MARKUP;
         default:
           String msg = String.format("Style '%s' is not implemented", this);
           throw new UnsupportedOperationException(msg);
@@ -75,7 +83,7 @@ public class List extends AptElement {
       boolean isLast = i == items.size() - 1;
       if (isLast) {
         sb.append(INDENTATION).
-           append("[]");
+           append(END_OF_LIST_MARKUP);
       }
     }
     

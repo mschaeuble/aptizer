@@ -4,6 +4,8 @@ import static com.github.mschaeuble.aptizer.util.Consts.NEW_LINE;
 
 public class Comment extends AptElement {
 
+  private static final String COMMENT_MARKUP = "~~";
+  
   private final String comment;
   
   public Comment(String comment) {
@@ -18,7 +20,7 @@ public class Comment extends AptElement {
     for (int i = 0; i < commentLines.length; i++) {
       String line = commentLines[i];
       
-      sb.append("~~").
+      sb.append(COMMENT_MARKUP).
          append(line);
       
       boolean isNotLastLine = i < commentLines.length - 1;
