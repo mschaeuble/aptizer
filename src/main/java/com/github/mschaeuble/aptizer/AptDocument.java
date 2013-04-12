@@ -6,10 +6,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-
 import static com.github.mschaeuble.aptizer.util.Consts.INDENTATION;
 import static com.github.mschaeuble.aptizer.util.Consts.NEW_LINE;
 import static com.github.mschaeuble.aptizer.util.Consts.THREE_DASHES;
+import static com.github.mschaeuble.aptizer.util.Preconditions.checkNotNull;
 
 public class AptDocument {
 
@@ -26,16 +26,23 @@ public class AptDocument {
   }
   
   public AptDocument(String title, String author) {
+    checkNotNull(title, "title must never be null");
+    checkNotNull(author, "author must never be null");
+    
     this.title = title;
     this.author = author;
   }
   
   public AptDocument append(AptElement element) {
+    checkNotNull(element, "element must never be null");
+    
     content.add(element);
     return this;
   }
   
   public void renderToFile(String fileName) throws IOException {
+    checkNotNull(fileName, "fileName must never be null");
+    
     String renderedDocument = renderDocument();
     writeToFile(renderedDocument, fileName);
   }

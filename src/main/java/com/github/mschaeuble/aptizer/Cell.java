@@ -1,5 +1,7 @@
 package com.github.mschaeuble.aptizer;
 
+import static com.github.mschaeuble.aptizer.util.Preconditions.checkNotNull;
+
 
 public class Cell {
 
@@ -35,11 +37,16 @@ public class Cell {
    * Constructs a new cell with default alignment (left).
    */
   public Cell(String content) {
+    checkNotNull(content, "content must never be null");
+    
     this.content = content;
     this.alignment = Alignment.LEFT;
   }
   
   public Cell(String content, Alignment alignment) {
+    checkNotNull(content, "content must never be null");
+    checkNotNull(alignment, "alignment must never be null. Use constructor without alignment parameter instaed if you wanna use default alignment");
+    
     this.content = content;
     this.alignment = alignment;
   }

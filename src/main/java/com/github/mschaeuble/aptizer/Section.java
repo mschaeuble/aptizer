@@ -3,6 +3,7 @@ package com.github.mschaeuble.aptizer;
 import static com.github.mschaeuble.aptizer.util.Consts.ASTERISK;
 import static com.github.mschaeuble.aptizer.util.Consts.SPACE;
 import static com.github.mschaeuble.aptizer.util.Preconditions.checkArgument;
+import static com.github.mschaeuble.aptizer.util.Preconditions.checkNotNull;
 
 public class Section extends AptElement {
 
@@ -13,6 +14,8 @@ public class Section extends AptElement {
    * Creates a first level section title.
    */
   public Section(String sectionTitle) {
+    checkNotNull(sectionTitle, "sectionTitle must never be null");
+    
     this.sectionTitle = sectionTitle;
     this.level = 1;
   }
@@ -25,6 +28,7 @@ public class Section extends AptElement {
    * The level must always be >= 1
    */
   public Section(String sectionTitle, int level) {
+    checkNotNull(sectionTitle, "sectionTitle must never be null");
     checkArgument(level >= 1, "level must be >= 1");
     
     this.sectionTitle = sectionTitle;

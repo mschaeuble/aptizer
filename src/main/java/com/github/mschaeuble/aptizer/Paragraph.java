@@ -5,16 +5,21 @@ import java.util.List;
 
 import static com.github.mschaeuble.aptizer.util.Consts.INDENTATION;
 import static com.github.mschaeuble.aptizer.util.Consts.NEW_LINE;
+import static com.github.mschaeuble.aptizer.util.Preconditions.checkNotNull;
 
 public class Paragraph extends AptElement {
 
   private final List<String> lines = new ArrayList<String>();
   
   public Paragraph(String text) {
+    checkNotNull(text, "text must never be null");
+    
     addLine(text);
   }
 
   public Paragraph addLine(String text) {
+    checkNotNull(text, "text must never be null");
+    
     lines.add(text);
     return this;
   }

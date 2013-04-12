@@ -2,6 +2,7 @@ package com.github.mschaeuble.aptizer;
 
 import static com.github.mschaeuble.aptizer.util.Consts.NEW_LINE;
 import static com.github.mschaeuble.aptizer.util.Consts.THREE_DASHES;
+import static com.github.mschaeuble.aptizer.util.Preconditions.checkNotNull;
 
 public class VerbatimText extends AptElement {
 
@@ -31,6 +32,9 @@ public class VerbatimText extends AptElement {
   private final Style style;
   
   public VerbatimText(String text, Style style) {
+    checkNotNull(text, "text must never be null");
+    checkNotNull(style, "style must never be null");
+    
     this.text = text;
     this.style = style;
   }

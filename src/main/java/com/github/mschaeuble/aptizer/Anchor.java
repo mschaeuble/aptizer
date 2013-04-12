@@ -1,10 +1,14 @@
 package com.github.mschaeuble.aptizer;
 
+import static com.github.mschaeuble.aptizer.util.Preconditions.checkNotNull;
+
 public class Anchor extends AptElement {
 
   private final String name;
   
   public Anchor(String name) {
+    checkNotNull(name, "name must never be null");
+    
     this.name = name;
   }
   

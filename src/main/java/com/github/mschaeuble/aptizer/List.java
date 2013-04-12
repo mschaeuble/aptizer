@@ -6,6 +6,7 @@ import static com.github.mschaeuble.aptizer.util.Consts.ASTERISK;
 import static com.github.mschaeuble.aptizer.util.Consts.INDENTATION;
 import static com.github.mschaeuble.aptizer.util.Consts.NEW_LINE;
 import static com.github.mschaeuble.aptizer.util.Consts.SPACE;
+import static com.github.mschaeuble.aptizer.util.Preconditions.checkNotNull;
 
 public class List extends AptElement {
 
@@ -61,6 +62,8 @@ public class List extends AptElement {
   private final Style style;
   
   public List(Style style) {
+    checkNotNull(style, "style must never be null");
+    
     this.style = style;
   }
   

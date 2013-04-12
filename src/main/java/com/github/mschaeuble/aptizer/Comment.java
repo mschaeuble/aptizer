@@ -1,6 +1,7 @@
 package com.github.mschaeuble.aptizer;
 
 import static com.github.mschaeuble.aptizer.util.Consts.NEW_LINE;
+import static com.github.mschaeuble.aptizer.util.Preconditions.checkNotNull;
 
 public class Comment extends AptElement {
 
@@ -9,6 +10,8 @@ public class Comment extends AptElement {
   private final String comment;
   
   public Comment(String comment) {
+    checkNotNull(comment, "comment must never be null");
+    
     this.comment = comment;
   }
   

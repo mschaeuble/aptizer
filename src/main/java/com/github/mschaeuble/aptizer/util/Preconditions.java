@@ -5,13 +5,15 @@ public final class Preconditions {
 
   private Preconditions() {}
   
-  /**
-   * Ensures that the provided expression is true. If the expression does not hold,
-   * an {@link IllegalArgumentException} with the provided error message is thrown.
-   */
   public static void checkArgument(boolean expression, String errorMessage) {
     if (!expression) {
       throw new IllegalArgumentException(errorMessage);
+    }
+  }
+  
+  public static <T>void checkNotNull(T reference, String errorMessage) {
+    if (reference == null) {
+      throw new NullPointerException(errorMessage);
     }
   }
   

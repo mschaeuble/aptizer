@@ -6,6 +6,7 @@ import java.util.List;
 
 import static com.github.mschaeuble.aptizer.util.Consts.EMPTY_STRING;
 import static com.github.mschaeuble.aptizer.util.Consts.NEW_LINE;
+import static com.github.mschaeuble.aptizer.util.Preconditions.checkNotNull;
 
 public class Table extends AptElement {
 
@@ -36,14 +37,19 @@ public class Table extends AptElement {
   private final Style style;
   private final String caption;
   
-  public Table(Style style, String caption) {
-    this.style = style;
-    this.caption = caption;
-  }
-  
   public Table(Style style) {
+    checkNotNull(style, "style must never be null");
+    
     this.style = style;
     this.caption = null;
+  }
+
+  public Table(Style style, String caption) {
+    checkNotNull(style, "style must never be null");
+    checkNotNull(caption, "caption must never be null. If you don't need a caption, use constructor without caption parameter");
+    
+    this.style = style;
+    this.caption = caption;
   }
   
   public Table addRow(Cell... cells) {
