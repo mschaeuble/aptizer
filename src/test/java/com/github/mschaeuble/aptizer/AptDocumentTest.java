@@ -8,6 +8,7 @@ import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
 
 import com.github.mschaeuble.aptizer.element.HorizontalRule;
+import com.github.mschaeuble.aptizer.element.Link;
 import com.github.mschaeuble.aptizer.element.List;
 import com.github.mschaeuble.aptizer.element.List.Style;
 import com.github.mschaeuble.aptizer.element.Paragraph;
@@ -61,6 +62,8 @@ public class AptDocumentTest {
                  addItem("Upper roman item 2.")).
         append(new VerbatimText("Verbatim text,\n   preformatted,\n      escaped.")).
         append(new HorizontalRule()).
+        append(new Link("http://www.google.com")).
+        append(new Link("http://www.google.com", "Google")).
         renderToFile(outputFile.getAbsolutePath());
     
     // Then

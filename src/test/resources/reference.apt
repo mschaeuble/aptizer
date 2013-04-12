@@ -62,3 +62,7 @@ Verbatim text,
 ---
 
 ===
+
+{{http://www.google.com}}
+
+{{{http://www.google.com}Google}}
