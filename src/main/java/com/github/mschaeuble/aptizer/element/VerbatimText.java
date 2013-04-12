@@ -5,22 +5,46 @@ import static com.github.mschaeuble.aptizer.util.Consts.THREE_DASHES;
 
 public class VerbatimText implements AptElement {
 
-  private String text;
+  public enum Style {
+    /** Without a box */
+    UNFRAMED,
+    
+    /** With box */
+    FRAMED;
+    
+    private String render() {
+      switch (this) {
+        case UNFRAMED:
+          return THREE_DASHES;
+        case FRAMED:
+          return "+--+";
+        default:
+          String msg = String.format("Style '%s' is not implemented", this);
+          throw new UnsupportedOperationException(msg);
+      }
+    }
+  }
   
-  public VerbatimText(String text) {
+  private final String text;
+  private final Style style;
+  
+  public VerbatimText(String text, Style style) {
     this.text = text;
+    this.style = style;
   }
   
   public String render() {
     StringBuilder sb = new StringBuilder();
     
-    sb.append(THREE_DASHES).
+    String renderedFrameStyle = style.render();
+    
+    sb.append(renderedFrameStyle).
        append(NEW_LINE).
        append(text).
        append(NEW_LINE).
-       append(THREE_DASHES);
+       append(renderedFrameStyle);
     
     return sb.toString();
   }
-
+  
 }

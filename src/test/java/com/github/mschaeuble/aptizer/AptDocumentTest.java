@@ -64,12 +64,13 @@ public class AptDocumentTest {
         append(new List(Style.UPPER_ROMAN).
                  addItem("Upper roman item 1.").
                  addItem("Upper roman item 2.")).
-        append(new VerbatimText("Verbatim text,\n   preformatted,\n      escaped.")).
+        append(new VerbatimText("Verbatim text,\n   preformatted,\n      escaped.", VerbatimText.Style.UNFRAMED)).
         append(new HorizontalRule()).
         append(new Link("http://www.google.com")).
         append(new Link("http://www.google.com", "Google")).
         append(new Link(topAnchor, "Goto top")).
         append(new Link(topAnchor)).
+        append(new VerbatimText("Verbatim text in a box", VerbatimText.Style.FRAMED)).
         renderToFile(outputFile.getAbsolutePath());
     
     // Then

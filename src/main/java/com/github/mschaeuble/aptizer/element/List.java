@@ -26,7 +26,27 @@ public class List implements AptElement {
     LOWER_ROMAN,
     
     /** Upper-roman numbering: I, II, III, IV, etc. */
-    UPPER_ROMAN
+    UPPER_ROMAN;
+    
+    private String render() {
+      switch (this) {
+        case BULLETS:
+          return ASTERISK;
+        case DECIMAL:
+          return "[[1]]";
+        case LOWER_ALPHA:
+          return "[[a]]";
+        case UPPER_ALPHA:
+          return "[[A]]";
+        case LOWER_ROMAN:
+          return "[[i]]";
+        case UPPER_ROMAN:
+          return "[[I]]";
+        default:
+          String msg = String.format("Style '%s' is not implemented", this);
+          throw new UnsupportedOperationException(msg);
+      }
+    }
   }
   
   private final java.util.List<String> items = new ArrayList<String>();
@@ -46,7 +66,7 @@ public class List implements AptElement {
     
     for (int i = 0; i < items.size(); i++) {
       sb.append(INDENTATION).
-         append(getRenderedListStyle()).
+         append(style.render()).
          append(SPACE).
          append(items.get(i)).
          append(NEW_LINE).
@@ -62,23 +82,4 @@ public class List implements AptElement {
     return sb.toString();
   }
   
-  private String getRenderedListStyle() {
-    switch (style) {
-      case BULLETS:
-        return ASTERISK;
-      case DECIMAL:
-        return "[[1]]";
-      case LOWER_ALPHA:
-        return "[[a]]";
-      case UPPER_ALPHA:
-        return "[[A]]";
-      case LOWER_ROMAN:
-        return "[[i]]";
-      case UPPER_ROMAN:
-        return "[[I]]";
-      default:
-        String msg = String.format("Style '%s' is not implemented", style);
-        throw new UnsupportedOperationException(msg);
-    }
-  }
 }
