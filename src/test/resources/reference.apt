@@ -1,3 +1,17 @@
-Section 1
+  ---
+  Title
+  ---
+  Author
 
-  A paragraph.
+  Paragraph 1, line 1.
+  Paragraph 1, line 2.
+
+Section title
+
+* Sub-section title
+
+** Sub-sub-section title
+
+*** Sub-sub-sub-section title
+
+**** Sub-sub-sub-sub-section title

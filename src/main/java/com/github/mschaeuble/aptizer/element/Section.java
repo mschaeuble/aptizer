@@ -1,15 +1,8 @@
-/*
- * Copyright (C) 2013 by Netcetera AG.
- * All rights reserved.
- *
- * The copyright to the computer program(s) herein is the property of Netcetera AG, Switzerland.
- * The program(s) may be used and/or copied only with the written permission of Netcetera AG or
- * in accordance with the terms and conditions stipulated in the agreement/contract under which 
- * the program(s) have been supplied.
- */
 package com.github.mschaeuble.aptizer.element;
 
-import static com.github.mschaeuble.aptizer.util.Preconditions.*;
+import static com.github.mschaeuble.aptizer.util.Consts.SPACE;
+import static com.github.mschaeuble.aptizer.util.Consts.ASTERISK;
+import static com.github.mschaeuble.aptizer.util.Preconditions.checkArgument;
 
 public class Section implements AptElement {
 
@@ -42,11 +35,11 @@ public class Section implements AptElement {
     StringBuilder sb = new StringBuilder();
     
     for (int i=1; i < level; i++) {
-      sb.append("*");
+      sb.append(ASTERISK);
     }
     
     if (level > 1) {
-      sb.append(" ");
+      sb.append(SPACE);
     }
     
     sb.append(sectionTitle);

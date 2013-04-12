@@ -8,16 +8,31 @@ import java.util.List;
 
 import com.github.mschaeuble.aptizer.element.AptElement;
 
+import static com.github.mschaeuble.aptizer.util.Consts.INDENTATION;
+import static com.github.mschaeuble.aptizer.util.Consts.NEW_LINE;
+import static com.github.mschaeuble.aptizer.util.Consts.THREE_DASHES;
 
 public class AptDocument {
 
-  List<AptElement> elements = new ArrayList<AptElement>();
+  private final String title;
+  private final String author;
+  private final List<AptElement> content = new ArrayList<AptElement>();
   
+  /**
+   * Constructs an empty document without title, author and date.
+   */
   public AptDocument() {
+    title = null;
+    author = null;
+  }
+  
+  public AptDocument(String title, String author) {
+    this.title = title;
+    this.author = author;
   }
   
   public void append(AptElement element) {
-    elements.add(element);
+    content.add(element);
   }
   
   public void renderToFile(String fileName) throws IOException {
@@ -28,18 +43,41 @@ public class AptDocument {
   private String renderDocument() {
     StringBuilder sb = new StringBuilder();
     
-    
-    for (int i = 0; i < elements.size(); i++) {
-      AptElement element = elements.get(i);
-      sb.append(element.render());
-      
-      boolean notLastElement = i != elements.size()-1;
-      if (notLastElement) {
-        sb.append("\n\n");
-      }
-    }
+    renderHeader(sb);
+    renderContent(sb);
     
     return sb.toString();
+  }
+
+  private void renderHeader(StringBuilder sb) {
+    renderHeaderTextIfNeeded(title, sb);
+    renderHeaderTextIfNeeded(author, sb);
+    
+    if (title != null || author != null) {
+      sb.append(NEW_LINE);
+    }
+  }
+
+  private void renderHeaderTextIfNeeded(String headerText, StringBuilder sb) {
+    if (headerText != null) {
+      sb.append(INDENTATION).append(THREE_DASHES);
+      sb.append(NEW_LINE);
+      sb.append(INDENTATION).append(headerText);
+      sb.append(NEW_LINE);
+    }
+  }
+
+  private void renderContent(StringBuilder sb) {
+    for (int i = 0; i < content.size(); i++) {
+      AptElement element = content.get(i);
+      sb.append(element.render());
+      
+      boolean notLastElement = i != content.size()-1;
+      if (notLastElement) {
+        sb.append(NEW_LINE).
+           append(NEW_LINE);
+      }
+    }
   }
 
   private void writeToFile(String renderedDocument, String fileName) throws IOException {
