@@ -7,6 +7,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
 
+import com.github.mschaeuble.aptizer.element.Anchor;
 import com.github.mschaeuble.aptizer.element.HorizontalRule;
 import com.github.mschaeuble.aptizer.element.Link;
 import com.github.mschaeuble.aptizer.element.List;
@@ -32,7 +33,10 @@ public class AptDocumentTest {
     File outputFile = tmpFolder.newFile("test.apt");
     
     // When
+    Anchor topAnchor = new Anchor("TopAnchor");
+    
     new AptDocument("Title", "Author").
+        append(topAnchor).
         append(new Paragraph("Paragraph 1, line 1.").
                      addLine("Paragraph 1, line 2.")).
         append(new Paragraph("Paragraph 2, line 1.").
@@ -64,6 +68,8 @@ public class AptDocumentTest {
         append(new HorizontalRule()).
         append(new Link("http://www.google.com")).
         append(new Link("http://www.google.com", "Google")).
+        append(new Link(topAnchor, "Goto top")).
+        append(new Link(topAnchor)).
         renderToFile(outputFile.getAbsolutePath());
     
     // Then

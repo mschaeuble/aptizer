@@ -3,6 +3,8 @@
   ---
   Author
 
+{TopAnchor}
+
   Paragraph 1, line 1.
   Paragraph 1, line 2.
 
@@ -66,3 +68,7 @@ Verbatim text,
 {{http://www.google.com}}
 
 {{{http://www.google.com}Google}}
+
+{{{TopAnchor}Goto top}}
+
+{{TopAnchor}}
