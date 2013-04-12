@@ -6,6 +6,9 @@
   Paragraph 1, line 1.
   Paragraph 1, line 2.
 
+  Paragraph 2, line 1.
+  Paragraph 2, line 2.
+
 Section title
 
 * Sub-section title
@@ -15,3 +18,7 @@ Section title
 *** Sub-sub-sub-section title
 
 **** Sub-sub-sub-sub-section title
+
+  * List item 1.
+
+  * List item 2.

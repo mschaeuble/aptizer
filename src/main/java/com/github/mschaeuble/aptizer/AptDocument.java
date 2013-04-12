@@ -31,8 +31,9 @@ public class AptDocument {
     this.author = author;
   }
   
-  public void append(AptElement element) {
+  public AptDocument append(AptElement element) {
     content.add(element);
+    return this;
   }
   
   public void renderToFile(String fileName) throws IOException {

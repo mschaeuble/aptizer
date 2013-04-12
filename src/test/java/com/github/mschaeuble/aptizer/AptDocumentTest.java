@@ -7,6 +7,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
 
+import com.github.mschaeuble.aptizer.element.List;
 import com.github.mschaeuble.aptizer.element.Paragraph;
 import com.github.mschaeuble.aptizer.element.Section;
 
@@ -24,18 +25,22 @@ public class AptDocumentTest {
   @Test
   public void shouldRenderAnAptDocument() throws IOException {
     // Given
-    AptDocument document = new AptDocument("Title", "Author");
-    document.append(new Paragraph("Paragraph 1, line 1.").addLine("Paragraph 1, line 2."));
-    document.append(new Section("Section title"));
-    document.append(new Section("Sub-section title", 2));
-    document.append(new Section("Sub-sub-section title", 3));
-    document.append(new Section("Sub-sub-sub-section title", 4));
-    document.append(new Section("Sub-sub-sub-sub-section title", 5));
-
     File outputFile = tmpFolder.newFile("test.apt");
     
     // When
-    document.renderToFile(outputFile.getAbsolutePath());
+    new AptDocument("Title", "Author").
+        append(new Paragraph("Paragraph 1, line 1.").
+                     addLine("Paragraph 1, line 2.")).
+        append(new Paragraph("Paragraph 2, line 1.").
+                     addLine("Paragraph 2, line 2.")).
+        append(new Section("Section title")).
+        append(new Section("Sub-section title", 2)).
+        append(new Section("Sub-sub-section title", 3)).
+        append(new Section("Sub-sub-sub-section title", 4)).
+        append(new Section("Sub-sub-sub-sub-section title", 5)).
+        append(new List().addItem("List item 1.").
+                          addItem("List item 2.")).
+        renderToFile(outputFile.getAbsolutePath());
     
     // Then
     assertThat(outputFile.exists(), equalTo(true));
