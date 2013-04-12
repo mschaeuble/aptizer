@@ -1,6 +1,6 @@
-package com.github.mschaeuble.aptizer.element;
+package com.github.mschaeuble.aptizer;
 
-public class Link implements AptElement {
+public class Link extends AptElement {
 
   private final String target;
   private final String alternateText;
@@ -42,7 +42,7 @@ public class Link implements AptElement {
     this.alternateText = alternateText;
   }
 
-  public String render() {
+  String render() {
     if (alternateText != null) {
       return String.format("{{{%s}%s}}", target, alternateText);
     } else {

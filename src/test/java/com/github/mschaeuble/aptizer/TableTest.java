@@ -1,8 +1,8 @@
-package com.github.mschaeuble.aptizer.element;
+package com.github.mschaeuble.aptizer;
 
 import org.junit.Test;
 
-import com.github.mschaeuble.aptizer.element.Table.Style;
+import com.github.mschaeuble.aptizer.Table.Style;
 
 import static org.hamcrest.Matchers.equalTo;
 import static org.junit.Assert.assertThat;

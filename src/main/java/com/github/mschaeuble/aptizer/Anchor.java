@@ -1,6 +1,6 @@
-package com.github.mschaeuble.aptizer.element;
+package com.github.mschaeuble.aptizer;
 
-public class Anchor implements AptElement {
+public class Anchor extends AptElement {
 
   private final String name;
   
@@ -12,7 +12,7 @@ public class Anchor implements AptElement {
     return name;
   }
   
-  public String render() {
+  String render() {
     return String.format("{%s}", name);
   }
 

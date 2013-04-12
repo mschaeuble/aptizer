@@ -1,4 +1,4 @@
-package com.github.mschaeuble.aptizer.element;
+package com.github.mschaeuble.aptizer;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,7 +6,7 @@ import java.util.List;
 import static com.github.mschaeuble.aptizer.util.Consts.INDENTATION;
 import static com.github.mschaeuble.aptizer.util.Consts.NEW_LINE;
 
-public class Paragraph implements AptElement {
+public class Paragraph extends AptElement {
 
   private final List<String> lines = new ArrayList<String>();
   
@@ -19,7 +19,7 @@ public class Paragraph implements AptElement {
     return this;
   }
 
-  public String render() {
+  String render() {
     StringBuilder sb = new StringBuilder();
     
     for (int i = 0; i < lines.size(); i++) {

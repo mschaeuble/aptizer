@@ -7,17 +7,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
 
-import com.github.mschaeuble.aptizer.element.Anchor;
-import com.github.mschaeuble.aptizer.element.Cell;
-import com.github.mschaeuble.aptizer.element.Comment;
-import com.github.mschaeuble.aptizer.element.HorizontalRule;
-import com.github.mschaeuble.aptizer.element.Link;
-import com.github.mschaeuble.aptizer.element.List;
-import com.github.mschaeuble.aptizer.element.List.Style;
-import com.github.mschaeuble.aptizer.element.Paragraph;
-import com.github.mschaeuble.aptizer.element.Section;
-import com.github.mschaeuble.aptizer.element.Table;
-import com.github.mschaeuble.aptizer.element.VerbatimText;
+import com.github.mschaeuble.aptizer.List.Style;
 
 import static org.apache.commons.io.FileUtils.readFileToString;
 import static org.apache.commons.io.FileUtils.toFile;

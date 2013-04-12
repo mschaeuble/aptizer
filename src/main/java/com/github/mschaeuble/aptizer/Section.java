@@ -1,10 +1,10 @@
-package com.github.mschaeuble.aptizer.element;
+package com.github.mschaeuble.aptizer;
 
-import static com.github.mschaeuble.aptizer.util.Consts.SPACE;
 import static com.github.mschaeuble.aptizer.util.Consts.ASTERISK;
+import static com.github.mschaeuble.aptizer.util.Consts.SPACE;
 import static com.github.mschaeuble.aptizer.util.Preconditions.checkArgument;
 
-public class Section implements AptElement {
+public class Section extends AptElement {
 
   private final String sectionTitle;
   private final int level;
@@ -31,7 +31,7 @@ public class Section implements AptElement {
     this.level = level;
   }
   
-  public String render() {
+  String render() {
     StringBuilder sb = new StringBuilder();
     
     for (int i=1; i < level; i++) {

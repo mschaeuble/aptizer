@@ -1,4 +1,4 @@
-package com.github.mschaeuble.aptizer.element;
+package com.github.mschaeuble.aptizer;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -6,7 +6,7 @@ import java.util.List;
 
 import static com.github.mschaeuble.aptizer.util.Consts.NEW_LINE;
 
-public class Table implements AptElement {
+public class Table extends AptElement {
 
   public enum Style {
     /** Draws the table with a grid around table cells. */
@@ -47,7 +47,7 @@ public class Table implements AptElement {
     return this;
   }
   
-  public String render() {
+  String render() {
     boolean isEmptyTable = content.size() <= 0;
     if (isEmptyTable) {
       return "";

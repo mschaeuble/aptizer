@@ -1,4 +1,4 @@
-package com.github.mschaeuble.aptizer.element;
+package com.github.mschaeuble.aptizer;
 
 import java.util.ArrayList;
 
@@ -7,7 +7,7 @@ import static com.github.mschaeuble.aptizer.util.Consts.INDENTATION;
 import static com.github.mschaeuble.aptizer.util.Consts.NEW_LINE;
 import static com.github.mschaeuble.aptizer.util.Consts.SPACE;
 
-public class List implements AptElement {
+public class List extends AptElement {
 
   public enum Style {
     /** bullet points. */
@@ -61,7 +61,7 @@ public class List implements AptElement {
     return this;
   }
   
-  public String render() {
+  String render() {
     StringBuilder sb = new StringBuilder();
     
     for (int i = 0; i < items.size(); i++) {

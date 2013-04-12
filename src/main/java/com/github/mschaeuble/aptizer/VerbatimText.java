@@ -1,9 +1,9 @@
-package com.github.mschaeuble.aptizer.element;
+package com.github.mschaeuble.aptizer;
 
 import static com.github.mschaeuble.aptizer.util.Consts.NEW_LINE;
 import static com.github.mschaeuble.aptizer.util.Consts.THREE_DASHES;
 
-public class VerbatimText implements AptElement {
+public class VerbatimText extends AptElement {
 
   public enum Style {
     /** Without a box */
@@ -33,7 +33,7 @@ public class VerbatimText implements AptElement {
     this.style = style;
   }
   
-  public String render() {
+  String render() {
     StringBuilder sb = new StringBuilder();
     
     String renderedFrameStyle = style.render();

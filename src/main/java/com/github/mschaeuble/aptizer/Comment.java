@@ -1,8 +1,8 @@
-package com.github.mschaeuble.aptizer.element;
+package com.github.mschaeuble.aptizer;
 
 import static com.github.mschaeuble.aptizer.util.Consts.NEW_LINE;
 
-public class Comment implements AptElement {
+public class Comment extends AptElement {
 
   private final String comment;
   
@@ -10,7 +10,7 @@ public class Comment implements AptElement {
     this.comment = comment;
   }
   
-  public String render() {
+  String render() {
     String[] commentLines = comment.split("\n");
     
     StringBuilder sb = new StringBuilder();

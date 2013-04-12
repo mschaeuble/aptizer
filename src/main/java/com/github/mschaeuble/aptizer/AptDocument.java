@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.github.mschaeuble.aptizer.element.AptElement;
 
 import static com.github.mschaeuble.aptizer.util.Consts.INDENTATION;
 import static com.github.mschaeuble.aptizer.util.Consts.NEW_LINE;

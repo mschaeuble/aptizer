@@ -1,4 +1,4 @@
-package com.github.mschaeuble.aptizer.element;
+package com.github.mschaeuble.aptizer;
 
 
 public class Cell {
