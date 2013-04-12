@@ -7,9 +7,12 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
 
+import com.github.mschaeuble.aptizer.element.HorizontalRule;
 import com.github.mschaeuble.aptizer.element.List;
+import com.github.mschaeuble.aptizer.element.List.Style;
 import com.github.mschaeuble.aptizer.element.Paragraph;
 import com.github.mschaeuble.aptizer.element.Section;
+import com.github.mschaeuble.aptizer.element.VerbatimText;
 
 import static org.apache.commons.io.FileUtils.readFileToString;
 import static org.apache.commons.io.FileUtils.toFile;
@@ -38,8 +41,26 @@ public class AptDocumentTest {
         append(new Section("Sub-sub-section title", 3)).
         append(new Section("Sub-sub-sub-section title", 4)).
         append(new Section("Sub-sub-sub-sub-section title", 5)).
-        append(new List().addItem("List item 1.").
-                          addItem("List item 2.")).
+        append(new List(Style.BULLETS).
+                 addItem("List item 1.").
+                 addItem("List item 2.")).
+        append(new List(Style.DECIMAL).
+                 addItem("Numbered item 1.").
+                 addItem("Numbered item 2.")).
+        append(new List(Style.LOWER_ALPHA).
+                 addItem("Lower alpha item 1.").
+                 addItem("Lower alpha item 2.")).
+        append(new List(Style.UPPER_ALPHA).
+                 addItem("Upper alpha item 1.").
+                 addItem("Upper alpha item 2.")).
+        append(new List(Style.LOWER_ROMAN).
+                 addItem("Lower roman item 1.").
+                 addItem("Lower roman item 2.")).
+        append(new List(Style.UPPER_ROMAN).
+                 addItem("Upper roman item 1.").
+                 addItem("Upper roman item 2.")).
+        append(new VerbatimText("Verbatim text,\n   preformatted,\n      escaped.")).
+        append(new HorizontalRule()).
         renderToFile(outputFile.getAbsolutePath());
     
     // Then
