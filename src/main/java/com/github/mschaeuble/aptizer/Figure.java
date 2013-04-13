@@ -1,5 +1,7 @@
 package com.github.mschaeuble.aptizer;
 
+import com.github.mschaeuble.aptizer.util.Escaper;
+
 import static com.github.mschaeuble.aptizer.util.Preconditions.checkNotNull;
 
 
@@ -40,7 +42,7 @@ public class Figure extends AptElement {
   @Override
   String render() {
     if (caption != null) {
-      return String.format("[%s] %s", figureName, caption);
+      return String.format("[%s] %s", figureName, Escaper.escape(caption));
     }
     
     return String.format("[%s]", figureName);

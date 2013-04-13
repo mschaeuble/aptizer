@@ -1,5 +1,7 @@
 package com.github.mschaeuble.aptizer;
 
+import com.github.mschaeuble.aptizer.util.Escaper;
+
 import static com.github.mschaeuble.aptizer.util.Consts.ASTERISK;
 import static com.github.mschaeuble.aptizer.util.Consts.SPACE;
 import static com.github.mschaeuble.aptizer.util.Preconditions.checkArgument;
@@ -46,7 +48,7 @@ public class Section extends AptElement {
       sb.append(SPACE);
     }
     
-    sb.append(sectionTitle);
+    sb.append(Escaper.escape(sectionTitle));
     
     return sb.toString();
   }

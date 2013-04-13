@@ -13,13 +13,13 @@
 
 Section title
 
-* Sub-section title
+* Sub\-section title
 
-** Sub-sub-section title
+** Sub\-sub\-section title
 
-*** Sub-sub-sub-section title
+*** Sub\-sub\-sub\-section title
 
-**** Sub-sub-sub-sub-section title
+**** Sub\-sub\-sub\-sub\-section title
 
   * List item 1.
 
@@ -78,7 +78,7 @@ Verbatim text in a box
 +--+
 
 *--*--+--:--
-|Centered|Left-aligned|Right-aligned
+|Centered|Left\-aligned|Right\-aligned
 *--*--+--:--
 |c|l|r
 *--*--+--:--
@@ -98,3 +98,5 @@ gridless|table
 [doesnotexist] Figure caption
 
 [doesnotexist]
+
+  Escaped special characters: \~, \=, \-, \+, \*, \[, \], \<, \>, \{, \}, \\.

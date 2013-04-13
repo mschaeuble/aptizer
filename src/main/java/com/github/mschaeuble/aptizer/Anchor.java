@@ -1,5 +1,7 @@
 package com.github.mschaeuble.aptizer;
 
+import com.github.mschaeuble.aptizer.util.Escaper;
+
 import static com.github.mschaeuble.aptizer.util.Preconditions.checkNotNull;
 
 public class Anchor extends AptElement {
@@ -17,7 +19,7 @@ public class Anchor extends AptElement {
   }
   
   String render() {
-    return String.format("{%s}", name);
+    return String.format("{%s}", Escaper.escape(name));
   }
 
 }

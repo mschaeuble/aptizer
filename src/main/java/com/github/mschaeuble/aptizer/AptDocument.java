@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.github.mschaeuble.aptizer.util.Escaper;
+
 import static com.github.mschaeuble.aptizer.util.Consts.INDENTATION;
 import static com.github.mschaeuble.aptizer.util.Consts.NEW_LINE;
 import static com.github.mschaeuble.aptizer.util.Consts.THREE_DASHES;
@@ -112,7 +114,7 @@ public class AptDocument {
     if (headerText != null) {
       sb.append(INDENTATION).append(THREE_DASHES);
       sb.append(NEW_LINE);
-      sb.append(INDENTATION).append(headerText);
+      sb.append(INDENTATION).append(Escaper.escape(headerText));
       sb.append(NEW_LINE);
     }
   }

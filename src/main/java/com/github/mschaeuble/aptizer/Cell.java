@@ -1,5 +1,7 @@
 package com.github.mschaeuble.aptizer;
 
+import com.github.mschaeuble.aptizer.util.Escaper;
+
 import static com.github.mschaeuble.aptizer.util.Preconditions.checkNotNull;
 
 
@@ -56,6 +58,6 @@ public class Cell {
   }
   
   String render() {
-    return content;
+    return Escaper.escape(content);
   }
 }

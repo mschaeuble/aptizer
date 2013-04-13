@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import com.github.mschaeuble.aptizer.util.Escaper;
+
 import static com.github.mschaeuble.aptizer.util.Consts.EMPTY_STRING;
 import static com.github.mschaeuble.aptizer.util.Consts.NEW_LINE;
 import static com.github.mschaeuble.aptizer.util.Preconditions.checkNotNull;
@@ -105,7 +107,7 @@ public class Table extends AptElement {
   private void renderCaption(StringBuilder sb) {
     if (caption != null) {
       sb.append(NEW_LINE);
-      sb.append(caption);
+      sb.append(Escaper.escape(caption));
     }
   }
 

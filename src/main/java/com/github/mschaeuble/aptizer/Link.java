@@ -1,5 +1,7 @@
 package com.github.mschaeuble.aptizer;
 
+import com.github.mschaeuble.aptizer.util.Escaper;
+
 import static com.github.mschaeuble.aptizer.util.Preconditions.checkNotNull;
 
 public class Link extends AptElement {
@@ -56,7 +58,7 @@ public class Link extends AptElement {
 
   String render() {
     if (alternateText != null) {
-      return String.format("{{{%s}%s}}", target, alternateText);
+      return String.format("{{{%s}%s}}", target, Escaper.escape(alternateText));
     } else {
       return String.format("{{%s}}", target);
     }

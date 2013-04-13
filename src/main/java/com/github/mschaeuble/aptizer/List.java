@@ -2,6 +2,8 @@ package com.github.mschaeuble.aptizer;
 
 import java.util.ArrayList;
 
+import com.github.mschaeuble.aptizer.util.Escaper;
+
 import static com.github.mschaeuble.aptizer.util.Consts.ASTERISK;
 import static com.github.mschaeuble.aptizer.util.Consts.INDENTATION;
 import static com.github.mschaeuble.aptizer.util.Consts.NEW_LINE;
@@ -79,7 +81,7 @@ public class List extends AptElement {
       sb.append(INDENTATION).
          append(style.render()).
          append(SPACE).
-         append(items.get(i)).
+         append(Escaper.escape(items.get(i))).
          append(NEW_LINE).
          append(NEW_LINE);
       

@@ -34,5 +34,5 @@ public class ParagraphTest {
     // Then
     assertThat(renderedParagraph, equalTo("  " + line1 + "\n" + "  " + line2));
   }
-
+  
 }

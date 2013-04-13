@@ -1,5 +1,7 @@
 package com.github.mschaeuble.aptizer;
 
+import com.github.mschaeuble.aptizer.util.Escaper;
+
 import static com.github.mschaeuble.aptizer.util.Preconditions.checkArgument;
 import static com.github.mschaeuble.aptizer.util.Preconditions.checkNotNull;
 
@@ -16,7 +18,7 @@ public class Date {
   public Date(String freetextDate) {
     checkNotNull(freetextDate, "freetextDate must never be null");
     
-    this.date = freetextDate;
+    this.date = Escaper.escape(freetextDate);
   }
   
   /**

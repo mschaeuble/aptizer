@@ -78,6 +78,7 @@ public class AptDocumentTest {
         append(new PageBreak()).
         append(new Figure("doesnotexist", "Figure caption")).
         append(new Figure("doesnotexist")).
+        append(new Paragraph("Escaped special characters: ~, =, -, +, *, [, ], <, >, {, }, \\.")).
         renderToFile(outputFile.getAbsolutePath());
     
     // Then
