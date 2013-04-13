@@ -8,6 +8,7 @@ import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
 
 import com.github.mschaeuble.aptizer.List.Style;
+import com.github.mschaeuble.aptizer.Text.Format;
 
 import static org.apache.commons.io.FileUtils.readFileToString;
 import static org.apache.commons.io.FileUtils.toFile;
@@ -79,6 +80,12 @@ public class AptDocumentTest {
         append(new Figure("doesnotexist", "Figure caption")).
         append(new Figure("doesnotexist")).
         append(new Paragraph("Escaped special characters: ~, =, -, +, *, [, ], <, >, {, }, \\.")).
+        append(new Paragraph(new Text().append("Italic", Format.ITALIC).
+                                        append(" font. ").
+                                        append("Bold", Format.BOLD).
+                                        append(" font. ").
+                                        append("Monospaced", Format.MONOSPACED).
+                                        append(" font."))).
         renderToFile(outputFile.getAbsolutePath());
     
     // Then

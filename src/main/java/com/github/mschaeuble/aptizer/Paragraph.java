@@ -16,13 +16,19 @@ public class Paragraph extends AptElement {
   public Paragraph(String text) {
     checkNotNull(text, "text must never be null");
     
-    addLine(text);
+    lines.add(Escaper.escape(text));
+  }
+  
+  public Paragraph(Text formattedText) {
+    checkNotNull(formattedText, "formattedText must never be null");
+    
+    lines.add(formattedText.render());
   }
 
   public Paragraph addLine(String text) {
     checkNotNull(text, "text must never be null");
     
-    lines.add(text);
+    lines.add(Escaper.escape(text));
     return this;
   }
 
@@ -32,7 +38,7 @@ public class Paragraph extends AptElement {
     for (int i = 0; i < lines.size(); i++) {
       String line = lines.get(i);
       
-      sb.append(INDENTATION).append(Escaper.escape(line));
+      sb.append(INDENTATION).append(line);
       
       boolean isNotLastLine = i < lines.size() - 1;
       if (isNotLastLine) {

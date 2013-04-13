@@ -100,3 +100,5 @@ gridless|table
 [doesnotexist]
 
   Escaped special characters: \~, \=, \-, \+, \*, \[, \], \<, \>, \{, \}, \\.
+
+  <Italic> font. <<Bold>> font. <<<Monospaced>>> font.
