@@ -81,3 +81,131 @@ A (rather complex) example is shown below demonstrating more or less all the fea
                                append("breaking").appendNonBreakingSpace().
                                append("space"))).
         renderToFile(outputFile.getAbsolutePath());
+        
+would result in the following document:
+
+      ---
+      Title
+      ---
+      Author
+    
+    {TopAnchor}
+    
+      Paragraph 1, line 1.
+      Paragraph 1, line 2.
+    
+      Paragraph 2, line 1.
+      Paragraph 2, line 2.
+    
+    Section title
+    
+    * Sub\-section title
+    
+    ** Sub\-sub\-section title
+    
+    *** Sub\-sub\-sub\-section title
+    
+    **** Sub\-sub\-sub\-sub\-section title
+    
+      * List item 1.
+    
+      * List item 2.
+    
+        paragraph contained in list item 2
+    
+        * Sub\-list item 1.
+    
+      []
+    
+      * List item 3.
+    
+      []
+    
+      [[1]] Numbered item 1.
+    
+      [[1]] Numbered item 2.
+    
+      []
+    
+      [[a]] Lower alpha item 1.
+    
+      [[a]] Lower alpha item 2.
+    
+      []
+    
+      [[A]] Upper alpha item 1.
+    
+      [[A]] Upper alpha item 2.
+    
+      []
+    
+      [[i]] Lower roman item 1.
+    
+      [[i]] Lower roman item 2.
+    
+      []
+    
+      [[I]] Upper roman item 1.
+    
+      [[I]] Upper roman item 2.
+    
+      []
+    
+    ---
+    Verbatim text,
+       preformatted,
+          escaped.
+    ---
+    
+    ===
+    
+    {{http://www.google.com}}
+    
+    {{{http://www.google.com}Google}}
+    
+    {{{TopAnchor}Goto top}}
+    
+    {{TopAnchor}}
+    
+    +--+
+    Verbatim text in a box
+    +--+
+    
+    *--*--+--:--
+    |Centered|Left\-aligned|Right\-aligned
+    *--*--+--:--
+    |c|l|r
+    *--*--+--:--
+    Table demo
+    
+    *--+--+--
+    This|is a
+    *--+--+--
+    gridless|table
+    *--+--+--
+    
+    ~~comment line 1
+    ~~comment line 2
+    
+    ^L
+    
+    [doesnotexist] Figure caption
+    
+    [doesnotexist]
+    
+      Escaped special characters: \~, \=, \-, \+, \*, \[, \], \<, \>, \{, \}, \\.
+    
+      <Italic> font. <<Bold>> font. <<<Monospaced>>> font.
+    
+      * <<Formatted list item>>
+    
+      []
+    
+    *--+--
+    |<formatted text in table cell>
+    *--+--
+    
+      Force line\
+    break.
+    
+      Non\ breaking\ space
