@@ -75,6 +75,7 @@ public class AptDocumentTest {
                  addRow(new Cell("This"), new Cell("is a")).
                  addRow(new Cell("gridless"), new Cell("table"))).
         append(new Comment("comment line 1\ncomment line 2")).
+        append(new PageBreak()).
         renderToFile(outputFile.getAbsolutePath());
     
     // Then
