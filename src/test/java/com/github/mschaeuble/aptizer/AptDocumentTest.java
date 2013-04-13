@@ -76,6 +76,8 @@ public class AptDocumentTest {
                  addRow(new Cell("gridless"), new Cell("table"))).
         append(new Comment("comment line 1\ncomment line 2")).
         append(new PageBreak()).
+        append(new Figure("doesnotexist", "Figure caption")).
+        append(new Figure("doesnotexist")).
         renderToFile(outputFile.getAbsolutePath());
     
     // Then
