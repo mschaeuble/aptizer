@@ -90,6 +90,7 @@ public class AptDocumentTest {
                  addItem(new Text().append("Formatted list item", Format.BOLD))).
         append(new Table(Table.Style.GRID).
                  addRow(new Cell(new Text("formatted text in table cell", Format.ITALIC)))).
+        append(new Paragraph(new Text("Force line").forceLineBreak().append("break."))).
         renderToFile(outputFile.getAbsolutePath());
     
     // Then

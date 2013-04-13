@@ -1,7 +1,7 @@
 package com.github.mschaeuble.aptizer;
 
+import static com.github.mschaeuble.aptizer.util.Consts.NEW_LINE;
 import static com.github.mschaeuble.aptizer.util.Preconditions.checkNotNull;
-
 
 public class Text {
   
@@ -11,6 +11,7 @@ public class Text {
   private final static String BOLD_END_MARKUP         = ">>";
   private final static String MONOSPACED_START_MARKUP = "<<<";
   private final static String MONOSPACED_END_MARKUP   = ">>>";
+  private final static String LINE_BREAK_MARKUP       = "\\";
   
   private final StringBuilder sb = new StringBuilder();
   
@@ -69,6 +70,12 @@ public class Text {
     return this;
   }
   
+  public Text forceLineBreak() {
+    sb.append(LINE_BREAK_MARKUP).
+       append(NEW_LINE);
+    return this;
+  }
+
   String render() {
     return sb.toString();
   }
