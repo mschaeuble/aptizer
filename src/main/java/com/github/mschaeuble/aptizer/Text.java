@@ -5,13 +5,14 @@ import static com.github.mschaeuble.aptizer.util.Preconditions.checkNotNull;
 
 public class Text {
   
-  private final static String ITALIC_START_MARKUP     = "<";
-  private final static String ITALIC_END_MARKUP       = ">";
-  private final static String BOLD_START_MARKUP       = "<<";
-  private final static String BOLD_END_MARKUP         = ">>";
-  private final static String MONOSPACED_START_MARKUP = "<<<";
-  private final static String MONOSPACED_END_MARKUP   = ">>>";
-  private final static String LINE_BREAK_MARKUP       = "\\";
+  private final static String ITALIC_START_MARKUP       = "<";
+  private final static String ITALIC_END_MARKUP         = ">";
+  private final static String BOLD_START_MARKUP         = "<<";
+  private final static String BOLD_END_MARKUP           = ">>";
+  private final static String MONOSPACED_START_MARKUP   = "<<<";
+  private final static String MONOSPACED_END_MARKUP     = ">>>";
+  private final static String LINE_BREAK_MARKUP         = "\\";
+  private final static String NON_BREAKING_SPACE_MARKUP = "\\ ";
   
   private final StringBuilder sb = new StringBuilder();
   
@@ -73,6 +74,11 @@ public class Text {
   public Text forceLineBreak() {
     sb.append(LINE_BREAK_MARKUP).
        append(NEW_LINE);
+    return this;
+  }
+
+  public Text appendNonBreakingSpace() {
+    sb.append(NON_BREAKING_SPACE_MARKUP);
     return this;
   }
 
