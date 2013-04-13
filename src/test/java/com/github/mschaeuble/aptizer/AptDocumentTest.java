@@ -42,7 +42,10 @@ public class AptDocumentTest {
         append(new Section("Sub-sub-sub-sub-section title", 5)).
         append(new List(Style.BULLETS).
                  addItem("List item 1.").
-                 addItem("List item 2.")).
+                 addItem("List item 2.").
+                 addParagraph(new Paragraph("paragraph contained in list item 2")).
+                 addList(new List(Style.BULLETS).addItem("Sub-list item 1.")).
+                 addItem("List item 3.")).
         append(new List(Style.DECIMAL).
                  addItem("Numbered item 1.").
                  addItem("Numbered item 2.")).

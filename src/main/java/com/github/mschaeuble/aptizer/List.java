@@ -76,6 +76,30 @@ public class List extends AptElement {
     return this;
   }
   
+  public List addParagraph(Paragraph paragraph) {
+    return addSubElement(paragraph);
+  }
+  
+  public List addList(List list) {
+    return addSubElement(list);
+  }
+
+  private List addSubElement(AptElement element) {
+    checkNotNull(element, "argument must never be null");
+    
+    int lastItemIndex = items.size() - 1;
+    
+    if (lastItemIndex < 0) {
+      throw new IllegalStateException("There must be an item in the list before you can add sub element");
+    }
+    
+    String lastItemAdded = items.get(lastItemIndex);
+    String newItem = lastItemAdded + NEW_LINE + NEW_LINE + INDENTATION + element.render();
+    items.set(lastItemIndex, newItem);
+
+    return this;
+  }
+  
   public AptElement addItem(Text formattedText) {
     checkNotNull(formattedText, "formattedText must never be null");
     
