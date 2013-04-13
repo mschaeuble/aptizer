@@ -102,3 +102,11 @@ gridless|table
   Escaped special characters: \~, \=, \-, \+, \*, \[, \], \<, \>, \{, \}, \\.
 
   <Italic> font. <<Bold>> font. <<<Monospaced>>> font.
+
+  * <<Formatted list item>>
+
+  []
+
+*--+--
+|<formatted text in table cell>
+*--+--

@@ -1,5 +1,7 @@
 package com.github.mschaeuble.aptizer;
 
+import static com.github.mschaeuble.aptizer.util.Preconditions.checkNotNull;
+
 
 public class Text {
   
@@ -21,13 +23,28 @@ public class Text {
     MONOSPACED;
   }
 
+  public Text() {
+  }
+  
+  public Text(String defaultFormattedText) {
+    append(defaultFormattedText);
+  }
+  
+  public Text(String defaultFormattedText, Format format) {
+    append(defaultFormattedText, format);
+  }
+  
   public Text append(String defaultFormattedText) {
-    sb.append(defaultFormattedText);
+    checkNotNull(defaultFormattedText, "defaultFormattedText must never be null");
     
+    sb.append(defaultFormattedText);
     return this;
   }
   
   public Text append(String text, Format format) {
+    checkNotNull(text, "text must never be null");
+    checkNotNull(format, "format must never be null");
+    
     switch (format) {
       case ITALIC:
         sb.append(ITALIC_START_MARKUP).

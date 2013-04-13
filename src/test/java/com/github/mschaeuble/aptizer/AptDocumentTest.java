@@ -86,6 +86,10 @@ public class AptDocumentTest {
                                         append(" font. ").
                                         append("Monospaced", Format.MONOSPACED).
                                         append(" font."))).
+        append(new List(Style.BULLETS).
+                 addItem(new Text().append("Formatted list item", Format.BOLD))).
+        append(new Table(Table.Style.GRID).
+                 addRow(new Cell(new Text("formatted text in table cell", Format.ITALIC)))).
         renderToFile(outputFile.getAbsolutePath());
     
     // Then

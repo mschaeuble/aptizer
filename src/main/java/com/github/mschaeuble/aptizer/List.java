@@ -70,7 +70,16 @@ public class List extends AptElement {
   }
   
   public List addItem(String itemText) {
-    items.add(itemText);
+    checkNotNull(itemText, "itemText must never be null");
+    
+    items.add(Escaper.escape(itemText));
+    return this;
+  }
+  
+  public AptElement addItem(Text formattedText) {
+    checkNotNull(formattedText, "formattedText must never be null");
+    
+    items.add(formattedText.render());
     return this;
   }
   
@@ -81,7 +90,7 @@ public class List extends AptElement {
       sb.append(INDENTATION).
          append(style.render()).
          append(SPACE).
-         append(Escaper.escape(items.get(i))).
+         append(items.get(i)).
          append(NEW_LINE).
          append(NEW_LINE);
       
@@ -94,5 +103,5 @@ public class List extends AptElement {
     
     return sb.toString();
   }
-  
+
 }

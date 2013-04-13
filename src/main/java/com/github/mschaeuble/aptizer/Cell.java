@@ -41,23 +41,38 @@ public class Cell {
   public Cell(String content) {
     checkNotNull(content, "content must never be null");
     
-    this.content = content;
+    this.content = Escaper.escape(content);
     this.alignment = Alignment.LEFT;
   }
   
   public Cell(String content, Alignment alignment) {
     checkNotNull(content, "content must never be null");
-    checkNotNull(alignment, "alignment must never be null. Use constructor without alignment parameter instaed if you wanna use default alignment");
+    checkNotNull(alignment, "alignment must never be null. Use constructor without alignment parameter instead if you wanna use default alignment");
     
-    this.content = content;
+    this.content = Escaper.escape(content);
     this.alignment = alignment;
   }
  
+  public Cell(Text formattedContent) {
+    checkNotNull(formattedContent, "formattedContent must never be null");
+    
+    this.content = formattedContent.render();
+    this.alignment = Alignment.LEFT;
+  }
+  
+  public Cell(Text formattedContent, Alignment alignment) {
+    checkNotNull(formattedContent, "formattedContent must never be null");
+    checkNotNull(alignment, "alignment must never be null. Use constructor without alignment parameter instead if you wanna use default alignment");
+    
+    this.content = formattedContent.render();
+    this.alignment = alignment;
+  }
+
   Alignment getAlignment() {
     return alignment;
   }
   
   String render() {
-    return Escaper.escape(content);
+    return content;
   }
 }

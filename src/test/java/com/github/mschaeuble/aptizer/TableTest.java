@@ -3,6 +3,7 @@ package com.github.mschaeuble.aptizer;
 import org.junit.Test;
 
 import com.github.mschaeuble.aptizer.Table.Style;
+import com.github.mschaeuble.aptizer.Text.Format;
 
 import static org.hamcrest.Matchers.equalTo;
 import static org.junit.Assert.assertThat;
@@ -58,4 +59,16 @@ public class TableTest {
     assertThat(renderedTable, equalTo("*--*--\ncell\n*--*--"));
   }
   
+  @Test
+  public void shouldRenderCellWithFormattedContent() throws Exception {
+    // Given
+    Table table = new Table(Style.GRID).
+                    addRow(new Cell(new Text("formatted text in table cell", Format.ITALIC)));
+    
+    // When
+    String renderedTable = table.render();
+    
+    // Then
+    assertThat(renderedTable, equalTo("*--+--\n|<formatted text in table cell>\n*--+--"));
+  }
 }
