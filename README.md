@@ -4,7 +4,7 @@ aptizer
 A small library to simplify the creation of [APT ("Almost Plain Text")](http://maven.apache.org/doxia/references/apt-format.html) files
 
 Usage
-=====
+-----
 
 A (rather complex) example is shown below demonstrating more or less all the features that aptizer supports
 
