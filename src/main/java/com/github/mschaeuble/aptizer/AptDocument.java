@@ -1,8 +1,9 @@
 package com.github.mschaeuble.aptizer;
 
 import java.io.BufferedWriter;
-import java.io.FileWriter;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,6 +16,8 @@ import static com.github.mschaeuble.aptizer.util.Preconditions.checkNotNull;
 
 public class AptDocument {
 
+  private static final String defaultEncoding = "UTF-8";
+  
   private final String title;
   private final String author;
   private final Date date;
@@ -72,6 +75,9 @@ public class AptDocument {
     return this;
   }
   
+  /**
+   * Renders document to a UTF-8 encoded file.
+   */
   public void renderToFile(String fileName) throws IOException {
     checkNotNull(fileName, "fileName must never be null");
     
@@ -133,11 +139,11 @@ public class AptDocument {
   }
 
   private void writeToFile(String renderedDocument, String fileName) throws IOException {
-    FileWriter fileWriter = new FileWriter(fileName);
-    BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+    OutputStreamWriter outStreamWriter = new OutputStreamWriter(new FileOutputStream(fileName), defaultEncoding);
+    BufferedWriter bufferedWriter = new BufferedWriter(outStreamWriter);
     bufferedWriter.write(renderedDocument);
     bufferedWriter.close();
-    fileWriter.close();
+    outStreamWriter.close();
   }
   
 }
