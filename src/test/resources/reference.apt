@@ -86,16 +86,16 @@ Verbatim text in a box
 +--+
 
 *--*--+--:--
-|Centered|Left\-aligned|Right\-aligned
+|Centered|Left\-aligned|Right\-aligned|
 *--*--+--:--
-|c|l|r
+|c|l|r|
 *--*--+--:--
 Table demo
 
 *--+--+--
-This|is a
+This|is a|
 *--+--+--
-gridless|table
+gridless|table|
 *--+--+--
 
 ~~comment line 1
@@ -116,10 +116,14 @@ gridless|table
   []
 
 *--+--
-|<formatted text in table cell>
+|<formatted text in table cell>|
 *--+--
 
   Force line\
 break.
 
   Non\ breaking\ space
+
+*--+--+--+--
+| |empty cells| |
+*--+--+--+--

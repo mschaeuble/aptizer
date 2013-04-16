@@ -101,7 +101,8 @@ public class Table extends AptElement {
       
       sb.append(cell.render());
     }
-    sb.append(NEW_LINE);
+    sb.append(CELL_SEPARATOR).
+       append(NEW_LINE);
   }
 
   private void renderCaption(StringBuilder sb) {

@@ -97,6 +97,10 @@ public class AptDocumentTest {
         append(new Paragraph(new Text("Non").appendNonBreakingSpace().
                                append("breaking").appendNonBreakingSpace().
                                append("space"))).
+        append(new Table(Table.Style.GRID).
+                 addRow(new Cell(),
+                        new Cell("empty cells"),
+                        new Cell())).
         renderToFile(outputFile.getAbsolutePath());
     
     // Then

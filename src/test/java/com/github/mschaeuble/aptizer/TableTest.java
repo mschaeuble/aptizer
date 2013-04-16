@@ -32,7 +32,7 @@ public class TableTest {
     String renderedTable = table.render();
     
     // Then
-    assertThat(renderedTable, equalTo("*--:--\n|cell\n*--:--"));
+    assertThat(renderedTable, equalTo("*--:--\n|cell|\n*--:--"));
   }
   
   @Test
@@ -44,7 +44,7 @@ public class TableTest {
     String renderedTable = table.render();
     
     // Then
-    assertThat(renderedTable, equalTo("*--+--\n|cell\n*--+--\ncaption"));
+    assertThat(renderedTable, equalTo("*--+--\n|cell|\n*--+--\ncaption"));
   }
   
   @Test
@@ -56,7 +56,7 @@ public class TableTest {
     String renderedTable = table.render();
     
     // Then
-    assertThat(renderedTable, equalTo("*--*--\ncell\n*--*--"));
+    assertThat(renderedTable, equalTo("*--*--\ncell|\n*--*--"));
   }
   
   @Test
@@ -69,6 +69,6 @@ public class TableTest {
     String renderedTable = table.render();
     
     // Then
-    assertThat(renderedTable, equalTo("*--+--\n|<formatted text in table cell>\n*--+--"));
+    assertThat(renderedTable, equalTo("*--+--\n|<formatted text in table cell>|\n*--+--"));
   }
 }

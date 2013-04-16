@@ -7,6 +7,7 @@ import static com.github.mschaeuble.aptizer.util.Preconditions.checkNotNull;
 
 public class Cell {
 
+  private static final String EMPTY_CELL_MARKUP = " ";
   
   public enum Alignment  {
     LEFT,
@@ -34,6 +35,14 @@ public class Cell {
   
   private final String content;
   private final Alignment alignment;
+  
+  /**
+   * Constructs a new empty cell.
+   */
+  public Cell() {
+    this.content = null;
+    this.alignment = Alignment.LEFT;
+  }
   
   /**
    * Constructs a new cell with default alignment (left).
@@ -73,6 +82,6 @@ public class Cell {
   }
   
   String render() {
-    return content;
+    return content != null ? content : EMPTY_CELL_MARKUP;
   }
 }
