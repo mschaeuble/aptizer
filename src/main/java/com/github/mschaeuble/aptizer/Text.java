@@ -71,6 +71,13 @@ public class Text {
     return this;
   }
   
+  public Text append(Link link) {
+    checkNotNull(link, "link must never be null");
+    
+    sb.append(link.render());
+    return this;
+  }
+  
   public Text forceLineBreak() {
     sb.append(LINE_BREAK_MARKUP).
        append(NEW_LINE);

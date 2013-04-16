@@ -48,4 +48,17 @@ public class TextTest {
     // Then
     assertThat(renderedText, equalTo("monospaced: <<<monospaced>>>"));
   }
+  
+  @Test
+  public void shouldRenderTextWithALink() throws Exception {
+    // Given
+    Text text = new Text().append("text with a link to ").
+                           append(new Link("http://www.google.com", "Google"));
+    
+    // When
+    String renderedText = text.render();
+    
+    // Then
+    assertThat(renderedText, equalTo("text with a link to {{{http://www.google.com}Google}}"));
+  }
 }
