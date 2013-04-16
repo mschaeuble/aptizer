@@ -20,8 +20,8 @@
 
   <scm>
     <url>git@github.com:mschaeuble/aptizer.git</url>
-    <connection>scm:git:git@github.com:mschaeuble/aptizer.git</connection>
-    <developerConnection>scm:git:git@github.com:mschaeuble/aptizer.git</developerConnection>
+    <connection>scm:git:https://github.com/mschaeuble/aptizer.git</connection>
+    <developerConnection>scm:git:https://github.com/mschaeuble/aptizer.git</developerConnection>
   </scm>
 
   <developers>
