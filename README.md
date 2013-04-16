@@ -3,6 +3,10 @@ aptizer
 
 A small library to simplify the creation of [APT ("Almost Plain Text")](http://maven.apache.org/doxia/references/apt-format.html) files
 
+License
+-------
+aptizer is released under the [Apache License, version 2.0](http://www.apache.org/licenses/LICENSE-2.0.html).
+
 Usage
 -----
 
